@@ -20,7 +20,7 @@
 
 	App.addInitializer ->
 		App.module("HeaderApp").start()
-		App.module("FooterApp").start()
+		# App.module("FooterApp").start()
 
 
 	App.reqres.setHandler "default:region", ->
