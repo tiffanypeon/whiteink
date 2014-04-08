@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
       else
         flash[:notice] = "Please login."
       end
-
     end
   end
 
