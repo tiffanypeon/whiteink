@@ -1,4 +1,4 @@
-@Demo.module "Utilities", (Utilities, App, Backbone, Marionette, $, _) ->
+@WI.module "Utilities", (Utilities, App, Backbone, Marionette, $, _) ->
 
   _.extend App,
 

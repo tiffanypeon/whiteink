@@ -1,4 +1,4 @@
-@Demo.module "Views", (Views, App, Backbone, Marionette, $, _) ->
+@WI.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
 
   _remove = Marionette.View::remove
@@ -32,8 +32,8 @@
 
     templateHelpers: ->
 
-      currentUser:
-        App.request("get:current:user").toJSON()
+      # currentUser:
+      #   App.request("get:current:user").toJSON()
 
 
       linkTo: (name, url, options = {}) ->
