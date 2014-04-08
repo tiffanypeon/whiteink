@@ -43,6 +43,9 @@ gem 'js-routes'
 gem 'eco'
 gem 'spinjs-rails'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"
