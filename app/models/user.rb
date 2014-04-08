@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :documents
+  validates_uniqueness_of :email
 
   def self.create_with_omniauth(auth)
     create! do |user|

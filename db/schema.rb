@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408144355) do
+ActiveRecord::Schema.define(version: 20140408191307) do
 
   create_table "documents", force: true do |t|
-    t.text     "text"
+    t.text     "name"
     t.integer  "user_id"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drafts", force: true do |t|
+    t.text     "content"
+    t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: true do |t|
-    t.text     "text"
-    t.integer  "document_id"
+    t.text     "content"
+    t.integer  "draft_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

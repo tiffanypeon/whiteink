@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'drafts/new'
+
+  get 'drafts/create'
+
+  get 'drafts/edit'
+
+  get 'drafts/destroy'
+
+  get 'drafts/index'
+
+  get 'drafts/update'
+
   resources :notes
 
   resources :documents
