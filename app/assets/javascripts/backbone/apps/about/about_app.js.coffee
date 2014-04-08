@@ -1,4 +1,4 @@
-@Demo.module "AboutApp", (AboutApp, App, Backbone, Marionette, $, _) ->
+@WI.module "AboutApp", (AboutApp, App, Backbone, Marionette, $, _) ->
 
   class AboutApp.Router extends Marionette.AppRouter
     appRoutes:
