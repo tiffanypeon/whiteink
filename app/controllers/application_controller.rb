@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authentication_required
 
+  def index
+  end
+  
   private
   def authentication_required
     if !logged_in?
@@ -34,4 +37,5 @@ class ApplicationController < ActionController::Base
   def login(user)
     session[:user_id] = user.id
   end
+
 end

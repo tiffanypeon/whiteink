@@ -1,4 +1,4 @@
-@Demo.module "Concerns", (Concerns, App, Backbone, Marionette, $, _) ->
+@WI.module "Concerns", (Concerns, App, Backbone, Marionette, $, _) ->
 
   Concerns.Chooseable =
     modelEvents:

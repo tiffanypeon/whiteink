@@ -1,4 +1,4 @@
-@Demo = do (Backbone, Marionette) ->
+@WI = do (Backbone, Marionette) ->
 
 	App = new Marionette.Application
 
@@ -8,17 +8,15 @@
 		footerRegion: "#footer-region"
 
 
-	App.rootRoute = Routes.conferences_path()
+	App.rootRoute = Routes.root_path()
 
 	App.on "initialize:before", (options) ->
-		@currentUser = App.request "set:current:user", options.currentUser
-		# @favorites = App.request "set:current:favorites", options.currentUser
+		# @currentUser = App.request "set:current:user", options.currentUser
+	#
+	# App.reqres.setHandler "get:current:user", ->
+	# 	App.currentUser
 
-	App.reqres.setHandler "get:current:user", ->
-		App.currentUser
 
-	# App.reqres.setHandler "get:current:favorites", ->
-	# 	App.favorites
 
 	App.addInitializer ->
 		App.module("HeaderApp").start()
