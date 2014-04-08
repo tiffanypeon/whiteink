@@ -3,13 +3,13 @@
   class New.Controller extends App.Controllers.Application
 
     initialize: ->
-      # document = App.request "document:entity"
+      draft = App.request "new:doraft:entity"
 
-      @layout = @getLayoutView()
+      @layout = @getLayoutView(draft)
 
       @listenTo @layout, "show", =>
         @titleRegion()
-        @editorRegion()
+        @editorRegion(draft)
 
       App.mainRegion.show @layout, loading: true
 
@@ -19,16 +19,18 @@
       @show titleView, region: @layout.titleRegion
 
 
-    editorRegion: ->
-      editorView = @getEditorView()
+    editorRegion: (document) ->
+      editorView = @getEditorView(draft)
       @show editorView, region: @layout.editorRegion
 
     getTitleView: ->
       new New.Title
 
 
-    getEditorView: ->
+    getEditorView: (draft) ->
       new New.Editor
+        model: draft
 
-    getLayoutView: ->
+    getLayoutView: (draft) ->
       new New.Layout
+        model: draft
