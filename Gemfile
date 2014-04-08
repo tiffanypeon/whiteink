@@ -58,6 +58,7 @@ group :test, :development do
   gem "database_cleaner"
   gem "sqlite3"
   gem "pry"
+  gem "dotenv-rails"
 end
 
 group :production do

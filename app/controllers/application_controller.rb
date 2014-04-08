@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :authentication_required
 
   def index
-  end
+		gon.rabl
+    @current_user = current_user
+    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
+		gon.rabl "app/views/users/show.json.rabl"
+	end
 
   private
   def authentication_required
