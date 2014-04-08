@@ -3,6 +3,7 @@ class CreateDocuments < ActiveRecord::Migration
     create_table :documents do |t|
       t.text :name
       t.integer :user_id
+      t.boolean :published
 
       t.timestamps
     end
