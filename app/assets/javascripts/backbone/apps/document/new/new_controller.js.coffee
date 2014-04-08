@@ -19,7 +19,7 @@
       @show titleView, region: @layout.titleRegion
 
 
-    editorRegion: (document) ->
+    editorRegion: (draft) ->
       editorView = @getEditorView(draft)
       @show editorView, region: @layout.editorRegion
 
