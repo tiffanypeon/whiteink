@@ -1,4 +1,4 @@
-@Demo.module "Components.Form", (Form, App, Backbone, Marionette, $, _) ->
+@WI.module "Components.Form", (Form, App, Backbone, Marionette, $, _) ->
 
   class Form.Controller extends App.Controllers.Application
 
