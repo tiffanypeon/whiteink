@@ -1,3 +1,1 @@
-<h3>Start Your Book:</h3>
-
-<p contenteditable="true">__</p>
+<p class="edit-document" contenteditable="true">__</p>

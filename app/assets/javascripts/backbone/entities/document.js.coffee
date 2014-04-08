@@ -1,33 +1,33 @@
 @WI.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 
-  class Entities.Document extends App.Entities.Model
-    urlRoot: -> Routes.documents_path()
+  class Entities.Draft extends App.Entities.Model
+    urlRoot: -> Routes.drafts_path()
 
 
 
-  class Entities.DocumentCollection extends App.Entities.Collection
-    model: Entities.Document
+  class Entities.DraftCollection extends App.Entities.Collection
+    model: Entities.Draft
 
-    url: -> Routes.documents_path()
+    url: -> Routes.drafts_path()
 
 
   API =
-    getDocuments: ->
-      documents = new Entities.DocumentCollection
-      documents.fetch
+    getDrafts: ->
+      draft = new Entities.DraftCollection
+      draft.fetch
         reset: true
-      documents
+      draft
 
-    getDocument: (id) ->
-      document = new Entities.Document
+    getDraft: (id) ->
+      draft = new Entities.Draft
         id: id
-      document.fetch()
-      document
+      draft.fetch()
+      draft
 
-    newDocument: ->
-      new Entities.Document
+    newDraft: ->
+      new Entities.Draft
 
 
-  App.reqres.setHandler "new:document:entity", ->
-    API.newDocument()
+  App.reqres.setHandler "new:doraft:entity", ->
+    API.newDraft()
