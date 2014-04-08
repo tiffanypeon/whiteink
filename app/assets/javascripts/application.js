@@ -15,6 +15,7 @@
 //= require backbone
 //= require backbone-associations
 //= require marionette
+//= require snap
 //= require js-routes
 //= require syphon
 //= require jquery.spin

@@ -1,9 +1,8 @@
 
 <div class="container">
 <div class="header">
-    <ul class="nav nav-pills pull-right"></ul>
-
   <h3 class="text-muted">White Ink</h3>
-  <a href="/auth/twitter"> logi in with twitter </a>
+  <ul></ul>
+  <a href="/auth/twitter"><p> Log in with twitter</p></a>
 </div>
 </div>
