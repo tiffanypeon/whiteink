@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def index
   end
-  
+
   private
   def authentication_required
     if !logged_in?
@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "Please login."
       end
 
-      redirect_to login_path
     end
   end
 
