@@ -24,10 +24,10 @@
 
 
       @listenTo editorView, "document:save", (draft) =>
-        draft.model.set({content: "first content"})
-        draft.model.save()
-
-
+        # console.log draft
+        text = $(".edit-document").text()
+        draft.set({content: text})
+        draft.save()
 
 
       @show editorView, region: @layout.editorRegion
