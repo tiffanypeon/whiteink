@@ -4,7 +4,7 @@
 
     initialize: ->
       draft = App.request "draft:last:entity"
-      # draft = App.request "new:draft:entity"
+      draft or= App.request "new:draft:entity"
 
       App.execute "when:fetched", draft, =>
 
