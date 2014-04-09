@@ -15,11 +15,12 @@
 //= require backbone
 //= require backbone-associations
 //= require marionette
-//= require snap
 //= require js-routes
 //= require syphon
 //= require jquery.spin
+//= require backbone-chooser
 //= require backbone-routefilter
+//= require snap
 //= require_tree ./config
 //= require backbone/app
 

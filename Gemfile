@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 
 
 gem 'rabl'
-gem 'oj'
+gem 'oj', '2.7.1'
 gem 'gon'
 gem 'js-routes'
 gem 'eco'
@@ -68,4 +68,3 @@ group :production do
 end
 
 gem "bootstrap-sass", "~> 3.1.1"
-
