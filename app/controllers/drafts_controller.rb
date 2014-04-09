@@ -1,6 +1,6 @@
 class DraftsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only: [:show, :edit, :create, :update, :destroy]
   before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
   def new
@@ -14,6 +14,7 @@ class DraftsController < ApplicationController
     else
       respond_with @draft
     end
+    binding.pry
   end
 
   def edit
@@ -33,7 +34,6 @@ class DraftsController < ApplicationController
   end
 
   private
-
   def draft_params
     params.permit(:content, :id, :document_id)
   end
