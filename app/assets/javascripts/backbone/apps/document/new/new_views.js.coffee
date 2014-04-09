@@ -13,3 +13,6 @@
 
   class New.Editor extends App.Views.ItemView
     template: "document/new/_editor"
+
+    triggers:
+      "click .button" : "document:save"

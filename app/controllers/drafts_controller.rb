@@ -1,4 +1,5 @@
 class DraftsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
@@ -32,6 +33,11 @@ class DraftsController < ApplicationController
   end
 
   private
+
+  def draft_params
+    params.permit(:content, :id, :document_id)
+  end
+
   def set_document
     @document = current_user.documents.find_or_create_by(published: false)
   end
@@ -40,4 +46,3 @@ class DraftsController < ApplicationController
     @current_user ||= current_user
   end
 end
-

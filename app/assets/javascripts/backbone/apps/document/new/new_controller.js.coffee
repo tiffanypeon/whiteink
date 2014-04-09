@@ -21,6 +21,15 @@
 
     editorRegion: (draft) ->
       editorView = @getEditorView(draft)
+
+
+      @listenTo editorView, "document:save", (draft) =>
+        draft.model.set({content: "first content"})
+        draft.model.save()
+
+
+
+
       @show editorView, region: @layout.editorRegion
 
     getTitleView: ->

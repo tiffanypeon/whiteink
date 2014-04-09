@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
+  before_action :set_current_user, only: [:index, :create, :show, :edit, :update, :destroy]
 
   def index
     @document = @current_user.documents.last

@@ -1,1 +1,3 @@
 <p class="edit-document" contenteditable="true">__</p>
+
+<div class="button btn">save</div>
