@@ -3,7 +3,9 @@
   class New.Controller extends App.Controllers.Application
 
     initialize: ->
-      draft = App.request "new:doraft:entity"
+      # draft = App.request "draft:entities"
+      # window.dr = draft
+      draft = App.request "new:draft:entity"
 
       @layout = @getLayoutView(draft)
 
@@ -24,10 +26,10 @@
 
 
       @listenTo editorView, "document:save", (draft) =>
-        draft.model.set({content: "first content"})
-        draft.model.save()
-
-
+        # console.log draft
+        text = $(".edit-document").text()
+        draft.set({content: text})
+        draft.save()
 
 
       @show editorView, region: @layout.editorRegion

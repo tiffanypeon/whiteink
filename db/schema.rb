@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20140408191307) do
 
   create_table "documents", force: true do |t|
-    t.text     "text"
+    t.text     "name"
     t.integer  "user_id"
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140408191307) do
   end
 
   create_table "notes", force: true do |t|
-    t.text     "text"
-    t.integer  "document_id"
+    t.text     "content"
+    t.integer  "draft_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
