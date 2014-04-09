@@ -24,6 +24,7 @@
 
 
       @listenTo editorView, "document:save", (draft) =>
+        # console.log "keyup"
         text = $(".edit-document").text()
         draft.model.set({content: text})
         draft.model.save()

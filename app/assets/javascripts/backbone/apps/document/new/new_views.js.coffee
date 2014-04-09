@@ -15,4 +15,4 @@
     template: "document/new/_editor"
 
     triggers:
-      "click .button" : "document:save"
+      "keyup 32" : "document:save"
