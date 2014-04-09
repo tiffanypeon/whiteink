@@ -3,17 +3,18 @@
   class New.Controller extends App.Controllers.Application
 
     initialize: ->
-      # draft = App.request "draft:entities"
-      # window.dr = draft
-      draft = App.request "new:draft:entity"
+      draft = App.request "draft:last:entity"
+      # draft = App.request "new:draft:entity"
 
-      @layout = @getLayoutView(draft)
+      App.execute "when:fetched", draft, =>
 
-      @listenTo @layout, "show", =>
-        @titleRegion()
-        @editorRegion(draft)
+        @layout = @getLayoutView(draft)
 
-      App.mainRegion.show @layout, loading: true
+        @listenTo @layout, "show", =>
+          @titleRegion()
+          @editorRegion(draft)
+
+        App.mainRegion.show @layout, loading: true
 
 
     titleRegion: ->
@@ -23,6 +24,7 @@
 
     editorRegion: (draft) ->
       editorView = @getEditorView(draft)
+
 
 
       @listenTo editorView, "document:save", (draft) =>
@@ -41,6 +43,7 @@
     getEditorView: (draft) ->
       new New.Editor
         model: draft
+
 
     getLayoutView: (draft) ->
       new New.Layout

@@ -5,7 +5,7 @@
 
     regions:
       titleRegion:      "#title-region"
-      editorRegion:      "#editor-region"
+      editorRegion:     "#editor-region"
 
   class New.Title extends App.Views.ItemView
     template: "document/new/_title"

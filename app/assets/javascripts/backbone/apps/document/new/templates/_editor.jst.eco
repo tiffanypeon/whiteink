@@ -1,1 +1,1 @@
-<p class="edit-document" contenteditable="true">__</p>
+<p class="edit-document" contenteditable="true"><%= @content %></p>

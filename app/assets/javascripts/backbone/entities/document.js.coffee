@@ -19,8 +19,15 @@
         reset: true
       draft
 
-    getDraft: ->
+    getLastDraft: ->
       draft = new Entities.Draft
+      draft.fetch()
+      draft
+
+
+    getDraft: (id)->
+      draft = new Entities.Draft
+        id: id
       draft.fetch()
       draft
 
@@ -29,6 +36,12 @@
 
   App.reqres.setHandler "draft:entities", ->
     API.getDraft()
+
+  App.reqres.setHandler "draft:entity",(id) ->
+    API.getDraft(id)
+
+  App.reqres.setHandler "draft:last:entity", ->
+    API.getLastDraft()
 
   App.reqres.setHandler "new:draft:entity", ->
     API.newDraft()
