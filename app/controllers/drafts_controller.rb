@@ -14,7 +14,6 @@ class DraftsController < ApplicationController
     else
       respond_with @draft
     end
-    binding.pry
   end
 
   def edit
