@@ -24,12 +24,10 @@
 
 
       @listenTo editorView, "document:save", (draft) =>
-        # console.log "keyup"
+        # console.log draft
         text = $(".edit-document").text()
-        draft.model.set({content: text})
-        draft.model.save()
-
-
+        draft.set({content: text})
+        draft.save()
 
 
       @show editorView, region: @layout.editorRegion

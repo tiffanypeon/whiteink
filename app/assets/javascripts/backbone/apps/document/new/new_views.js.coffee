@@ -7,12 +7,16 @@
       titleRegion:      "#title-region"
       editorRegion:      "#editor-region"
 
-
   class New.Title extends App.Views.ItemView
     template: "document/new/_title"
 
   class New.Editor extends App.Views.ItemView
     template: "document/new/_editor"
 
-    triggers:
-      "keyup 32" : "document:save"
+    events:
+      "keyup" : 'saveFunction'
+
+    saveFunction: (e) =>
+      model = @.model
+      if (e.keyCode ==32 || e.keyCode ==190 )
+        @trigger "document:save", (model)
