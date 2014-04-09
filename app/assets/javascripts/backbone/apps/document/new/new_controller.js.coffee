@@ -3,7 +3,9 @@
   class New.Controller extends App.Controllers.Application
 
     initialize: ->
-      draft = App.request "new:doraft:entity"
+      # draft = App.request "draft:entities"
+      # window.dr = draft
+      draft = App.request "new:draft:entity"
 
       @layout = @getLayoutView(draft)
 
