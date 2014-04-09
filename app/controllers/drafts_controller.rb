@@ -30,6 +30,12 @@ class DraftsController < ApplicationController
   end
 
   def update
+    @draft = Draft.find(params[:id])
+    if @draft.update_attributes draft_params
+      render "drafts/show"
+    else
+      respond_with @draft
+    end
   end
 
   private
