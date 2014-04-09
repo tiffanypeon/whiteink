@@ -8,7 +8,7 @@ class DraftsController < ApplicationController
   end
 
   def create
-    @draft = Draft.new(draft_params)
+    @draft = @document.drafts.build(draft_params)
     if @draft.save
       render "drafts/show"
     else
