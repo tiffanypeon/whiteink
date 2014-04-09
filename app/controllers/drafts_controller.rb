@@ -1,6 +1,6 @@
 class DraftsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_document, only: [:index, :show, :edit, :create, :update, :destroy]
+  before_action :set_document, only: [:index, :show, :create]
   before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
   def new

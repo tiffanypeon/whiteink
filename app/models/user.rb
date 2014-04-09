@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def active_draft_pair
+    documents.last.drafts[-2..-1]
+  end
+
 end

@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_draft, only: [:show, :edit, :create, :update, :destroy]
+  before_action :set_draft, only: [:create, :show]
   before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
   def new
@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @drafts.notes.build(note_params)
+    @note = @draft.notes.build(note_params)
     if @note.save
       render "notes/show"
     else
