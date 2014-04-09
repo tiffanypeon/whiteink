@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140408191307) do
   create_table "notes", force: true do |t|
     t.text     "content"
     t.integer  "draft_id"
+    t.integer  "draft_index"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
