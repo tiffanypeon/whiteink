@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'logout', to: 'sessions#destroy', via: [:get, :post]
 
+  get "/application.manifest" => Rails::Offline
+
 end
+

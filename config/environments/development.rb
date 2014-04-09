@@ -1,5 +1,7 @@
 Rails.application.configure do
 
+  config.cache_classes = true # to temporarily simulate production
+
   config.assets.raise_production_errors = true
   # Settings specified here will take precedence over those in config/application.rb.
 
