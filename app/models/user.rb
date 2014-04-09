@@ -12,8 +12,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def active_draft_pair
-    documents.last.drafts[-2..-1]
+  def active_drafts
+    last_draft = self.documents.last.drafts.last
+    last_two_drafts = self.documents.last.drafts[-2..-1]
+    last_two_drafts ? last_two_drafts : last_draft
   end
 
 end
