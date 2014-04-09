@@ -13,6 +13,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV["RAILS_ASSET_ID"] = "" # disable timestamps at end of asset files for offline browsing
+
 module Whiteink
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
