@@ -24,7 +24,8 @@
 
 
       @listenTo editorView, "document:save", (draft) =>
-        draft.model.set({content: "first content"})
+        text = $(".edit-document").text()
+        draft.model.set({content: text})
         draft.model.save()
 
 
