@@ -19,15 +19,16 @@
         reset: true
       draft
 
-    getDraft: (id) ->
+    getDraft: ->
       draft = new Entities.Draft
-        id: id
       draft.fetch()
       draft
 
     newDraft: ->
       new Entities.Draft
 
+  App.reqres.setHandler "draft:entities", ->
+    API.getDraft()
 
-  App.reqres.setHandler "new:doraft:entity", ->
+  App.reqres.setHandler "new:draft:entity", ->
     API.newDraft()
