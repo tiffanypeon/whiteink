@@ -7,7 +7,8 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @draft.notes.build(note_params)
+    # @note = @draft.notes.build(note_params)
+    @note = Note.new(note_params) # params have to contain draft_id
     if @note.save
       render "notes/show"
     else
@@ -38,13 +39,13 @@ class NotesController < ApplicationController
     params.permit(:content, :id, :draft_id, :draft_index)
   end
 
-  def set_draft
-    @draft = set_document.drafts.last
-  end
+  # def set_draft
+  #   @draft = set_document.drafts.last
+  # end
 
-  def set_document
-    @document = current_user.documents.find_or_create_by(published: false)
-  end
+  # def set_document
+  #   @document = current_user.documents.find_or_create_by(published: false)
+  # end
 
   def set_current_user
     @current_user ||= current_user

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :drafts
+  resources :drafts do
+    resources :notes
+  end
 
   resources :notes
 
