@@ -7,25 +7,34 @@
       draft_id = draft.id
       notes = App.request "note:entities", draft_id
 
-      @layout = @getLayoutView notes
 
-      @listenTo @layout, "close", @close
+      App.execute "when:fetched", notes, =>
 
-      @listenTo @layout, "show", =>
-        @panelRegion()
-        @notesRegion(notes)
-        # @ticketsRegion tickets
+        @layout = @getLayoutView notes
 
-      @show @layout, loading: true
+        @listenTo @layout, "close", @close
+
+        @listenTo @layout, "show", =>
+          @panelRegion(notes)
+          @notesRegion(notes)
+          # @ticketsRegion tickets
+
+        @show @layout, loading: true
 
 
-    panelRegion: ->
-      panelView = @getPanelView()
+    panelRegion: (notes)->
+      panelView = @getPanelView(notes)
+
+      @listenTo panelView, "new:note:button:clicked", =>
+        @newRegion(notes)
+
       @show panelView, region: @layout.panelRegion
       # App.execute "list:categories", @layout.addToCatRegion
 
-    # notesRegion: ->
-      # App.execute "list:user:categories", @layout.userCategoriesRegion
+    newRegion:(notes) ->
+      App.execute "new:note:create", notes, @layout.newRegion
+      # App.vent.trigger "new:note:create", notes, @layout.newRegion
+
 
 
     notesRegion: (notes) ->
@@ -38,8 +47,9 @@
       new List.Notes
         collection: notes
 
-    getPanelView: ->
+    getPanelView: (notes)->
       new List.Panel
+        collection: notes
 
 
     getLayoutView: (notes) ->

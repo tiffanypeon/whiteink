@@ -1,5 +1,6 @@
 
 <button id="new-note" class="button radius small secondary">
 		<i class="general-enclosed foundicon-plus"></i>
-		Add
-</button>
+		Add </button>
+
+<div id="new-region"></div>

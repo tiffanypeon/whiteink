@@ -59,6 +59,9 @@
         reset: true
       notes
 
+    newNote:(draft_id) ->
+      new Entities.Note(draft_id)
+
     newDraft: ->
       new Entities.Draft
 
@@ -76,3 +79,6 @@
 
   App.reqres.setHandler "note:entities", (draft_id) ->
     API.getNotes(draft_id)
+
+  App.reqres.setHandler "new:note:entity", (draft_id)->
+    API.newNote(draft_id)

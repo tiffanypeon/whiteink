@@ -5,7 +5,7 @@
 
 		regions:
 			newRegion:		"#new-region"
-			notesRegion:  "#tickets-region"
+			notesRegion:  "#notes-region"
 			panelRegion:  "#panel-region"
 
 
@@ -16,7 +16,7 @@
 			"click #new-note" : "new:note:button:clicked"
 
 	class List.Note extends App.Views.ItemView
-		template: "ticket/list/_note"
+		template: "note/list/_note"
 		tagName: "li"
 
 		# triggers:

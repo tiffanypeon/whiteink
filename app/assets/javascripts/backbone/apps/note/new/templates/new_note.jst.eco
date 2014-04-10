@@ -1,0 +1,4 @@
+
+<p>
+  <input id="note-input" type="text" name="content" placeholder="Note" />
+</p>

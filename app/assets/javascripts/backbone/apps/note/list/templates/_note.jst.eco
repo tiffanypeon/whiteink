@@ -1,1 +1,1 @@
-<li>note </li>
+<li> <%= @content %> </li>
