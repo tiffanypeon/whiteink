@@ -1,8 +1,8 @@
-[contenteditable="true"]:active,
+/*[contenteditable="true"]:active,
 [contenteditable="true"]:focus{
 border:none;
 outline:none;
-}
+}*/
 
 
 .edit-document { font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;

@@ -1,4 +1,4 @@
-<div class="text-wrapper">
-  <p class="edit-document" contenteditable="true"><%= @content %></p>
-  <div class="gradient"</div>
-</div>
+<div class="editor edit-document" contenteditable="true"><%= @content %></div>
+
+<!--   <p class="edit-document" id="editible" ><%= @content %></p>
+  <div class="gradient"></div> -->

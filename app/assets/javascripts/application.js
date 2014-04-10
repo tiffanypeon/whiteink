@@ -22,6 +22,7 @@
 //= require backbone-chooser
 //= require backbone-routefilter
 //= require snap
+//= require jquery.popline
 //= require autosize
 //= require hashes
 //= require_tree ./config

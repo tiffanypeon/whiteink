@@ -28,7 +28,8 @@
       editorView = @getEditorView(draft)
 
       @listenTo editorView, "document:save", (draft) =>
-        text = $(".edit-document").text()
+        text = $(".edit-document").html()
+        console.log text
         draft.set({content: text})
         draft.save()
 

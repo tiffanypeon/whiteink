@@ -14,6 +14,13 @@
   class New.Editor extends App.Views.ItemView
     template: "document/new/_editor"
 
+    onRender: ->
+      @setpopline()
+
+    setpopline:->
+      document.execCommand('defaultParagraphSeparator', false, 'p')
+      @$el.find(".editor").popline()
+
     events:
       "keyup" : 'saveFunction'
 
@@ -25,7 +32,3 @@
         if (e.keyCode ==37 || e.keyCode ==39)
           console.log "left / right arrow"
           false
-
-
-
-       
