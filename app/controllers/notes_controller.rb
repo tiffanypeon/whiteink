@@ -1,14 +1,22 @@
 class NotesController < ApplicationController
-  before_action :set_draft, only: [:create, :show]
+  skip_before_filter :verify_authenticity_token
+  # before_action :set_draft, only: [:create, :show]
   before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
   def new
     @note = Note.new
   end
 
+  def index
+    @draft = Draft.find params[:draft_id]
+    @notes = @draft.notes
+  end
+
   def create
+    # binding.pry
     # @note = @draft.notes.build(note_params)
-    @note = Note.new(note_params) # params have to contain draft_id
+    @note = Note.new(note_params)
+# params have to contain draft_id
     if @note.save
       render "notes/show"
     else

@@ -4,11 +4,12 @@
     template: "document/new/new_layout"
 
     regions:
-      titleRegion:      "#title-region"
+      # titleRegion:      "#title-region"
       editorRegion:     "#editor-region"
+      noteRegion:       "#note-region"
 
-  class New.Title extends App.Views.ItemView
-    template: "document/new/_title"
+  # class New.Title extends App.Views.ItemView
+  #   template: "document/new/_title"
 
   class New.Editor extends App.Views.ItemView
     template: "document/new/_editor"
