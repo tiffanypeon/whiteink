@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require underscore
+//= require underscore.string
 //= require backbone
 //= require backbone-associations
 //= require marionette
@@ -21,6 +22,8 @@
 //= require backbone-chooser
 //= require backbone-routefilter
 //= require snap
+//= require autosize
+//= require hashes
 //= require_tree ./config
 //= require backbone/app
 
