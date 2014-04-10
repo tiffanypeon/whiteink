@@ -1,6 +1,3 @@
 
 
 <p class="edit-document" contenteditable="true"><%= @content %></p>
-
-
-<a href="#linkk">#linkk</a>
