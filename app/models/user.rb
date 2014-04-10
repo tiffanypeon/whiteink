@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :documents
-  validates_uniqueness_of :name #email - write method to accept nil for twitter oauth
+  # validates_uniqueness_of :email # - write method to accept nil for twitter oauth
 
   def self.create_with_omniauth(auth)
     create! do |user|

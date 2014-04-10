@@ -20,16 +20,16 @@ line-height: 1.5;
   z-index: -100;
 }
 
-.gradient {
+/*.gradient {
 	width: inherit;
 	height: inherit;
-	top: 10px;
+	top: 0px;
 	/*left: 0%;*/
 	margin: inherit;
   background-image: -webkit-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(255,255,255,0.5) 23%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
   position: absolute;
   z-index: 2;
-}
+}*/
 
 
 .jqueryHashtags .highlighter{
