@@ -11,7 +11,8 @@
         @layout = @getLayoutView(draft)
 
         @listenTo @layout, "show", =>
-          @noteRegion(draft)
+          # @noteRegion(draft)
+          @noteRegion(draft) unless draft.isNew()
           @editorRegion(draft)
 
         App.mainRegion.show @layout, loading: true
@@ -26,10 +27,7 @@
     editorRegion: (draft) ->
       editorView = @getEditorView(draft)
 
-
-
       @listenTo editorView, "document:save", (draft) =>
-        # console.log draft
         text = $(".edit-document").text()
         draft.set({content: text})
         draft.save()
