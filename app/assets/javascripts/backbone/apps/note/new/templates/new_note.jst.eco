@@ -1,4 +1,4 @@
 
 <p>
-  <input id="note-input" type="text" name="content" placeholder="Note" />
+  <input id="note-input" type="text" name="content" placeholder="Note" autofocus/>
 </p>
