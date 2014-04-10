@@ -22,9 +22,24 @@
     events:
       "keyup" : 'saveFunction'
 
+    # getLastWord: ->
+    #   text = @$el.find('.edit-document').text()
+    #   lastWord = text.match(/[A-Za-z0-9-_]+\ ?$/)
+
+    getLastWord: -> _.last( _.str.words(@$el.find('.edit-document').text()))
+
+      # _.last( _.words(@$el.find('.edit-document').text()))
+
+    # replaceHash: ->
+    #   lastWord = @getLastWord()
+    #   if lastWord[0] is '#'
+
+
     saveFunction: (e) =>
       model = @.model
       if (e.keyCode ==32 || e.keyCode ==190 )
         @trigger "document:save", (model)
+        console.log @getLastWord()
+        # @addHashtags()
       if (e.keyCode ==37 || e.keyCode ==39)
         console.log "arrow"

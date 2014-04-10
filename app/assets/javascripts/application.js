@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require underscore
+//= require underscore.string
 //= require backbone
 //= require backbone-associations
 //= require marionette
