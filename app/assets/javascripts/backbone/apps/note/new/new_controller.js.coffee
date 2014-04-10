@@ -7,18 +7,6 @@
       draft_id = notes.draft_id
       note = App.request "new:note:entity", draft_id
 
-      @listenTo note, "created", ->
-        console.log "created"
-        @region.close()
-
-
-
-      # @listenTo conference, "created", ->
-      #   meny.close()
-      #   console.log "created"
-      #   id = conference.id
-      #   App.vent.trigger "conference:created", id, conference
-
 
       newView = @getNewView note, notes
 
@@ -28,6 +16,7 @@
         note.set({content: text})
         collection.add(note)
         note.save()
+        @region.close()
 
       @listenTo newView, "form:cancel", =>
         @region.close()
