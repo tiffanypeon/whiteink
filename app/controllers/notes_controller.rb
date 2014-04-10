@@ -14,9 +14,9 @@ class NotesController < ApplicationController
 
   def create
     # binding.pry
-    # @note = @draft.notes.build(note_params)
-    @note = Note.new(note_params)
-# params have to contain draft_id
+    @draft = Draft.find(params[:draft_id])
+    @note = @draft.notes.build(note_params)
+
     if @note.save
       render "notes/show"
     else
