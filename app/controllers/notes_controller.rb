@@ -44,7 +44,7 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.permit(:content, :id, :draft_id, :draft_index)
+    params.require(:note).permit(:content, :id, :draft_id, :draft_index)
   end
 
   # def set_draft

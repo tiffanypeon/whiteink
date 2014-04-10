@@ -13,8 +13,22 @@ font-size: 22px;
 line-height: 1.5;
 }
 
-#text-wrapper {
+.text-wrapper {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: -100;
+}
 
+.gradient {
+	width: inherit;
+	height: inherit;
+	top: 10px;
+	/*left: 0%;*/
+	margin: inherit;
+  background-image: -webkit-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(255,255,255,0.5) 23%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  position: absolute;
+  z-index: 2;
 }
 
 
