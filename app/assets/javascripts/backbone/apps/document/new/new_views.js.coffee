@@ -28,18 +28,17 @@
 
     getLastWord: -> _.last( _.str.words(@$el.find('.edit-document').text()))
 
-      # _.last( _.words(@$el.find('.edit-document').text()))
-
-    # replaceHash: ->
-    #   lastWord = @getLastWord()
-    #   if lastWord[0] is '#'
+    lookForHashInLastWord: ->
+      lastWord =  @getLastWord()
+      if _.str.startsWith(lastWord, '#')
+      # if _( lastWord).startsWith("#")
+        console.log true
 
 
     saveFunction: (e) =>
       model = @.model
       if (e.keyCode ==32 || e.keyCode ==190 )
         @trigger "document:save", (model)
-        console.log @getLastWord()
-        # @addHashtags()
+        @lookForHashInLastWord()
       if (e.keyCode ==37 || e.keyCode ==39)
         console.log "arrow"
