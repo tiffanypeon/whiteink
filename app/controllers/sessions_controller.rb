@@ -1,8 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :authentication_required, :except => [:destroy]
-
-  def new
-  end
 
   def create
     auth = request.env["omniauth.auth"]
