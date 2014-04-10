@@ -20,5 +20,11 @@
       model = @.model
       if (e.keyCode ==32 || e.keyCode ==190 )
         @trigger "document:save", (model)
-      if (e.keyCode ==37 || e.keyCode ==39)
-        console.log "arrow"
+      @$el.find(".edit-document").keydown (e) ->
+        false if (e.keyCode ==37 || e.keyCode ==39)
+        console.log "key pressed"
+
+
+
+
+       
