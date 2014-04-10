@@ -13,6 +13,12 @@
   class New.Editor extends App.Views.ItemView
     template: "document/new/_editor"
 
+    onRender: ->
+      @addHashtags()
+
+    addHashtags: ->
+      @$el.find('.edit-document').tweetLinks()
+
     events:
       "keyup" : 'saveFunction'
 
