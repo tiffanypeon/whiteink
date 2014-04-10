@@ -6,6 +6,11 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  def index
+    @draft = Draft.find params[:draft_id]
+    @notes = @draft.notes
+  end
+
   def create
     # @note = @draft.notes.build(note_params)
     @note = Note.new(note_params) # params have to contain draft_id

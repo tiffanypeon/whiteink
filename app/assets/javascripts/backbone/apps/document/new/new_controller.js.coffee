@@ -11,15 +11,16 @@
         @layout = @getLayoutView(draft)
 
         @listenTo @layout, "show", =>
-          @titleRegion()
+          @noteRegion(draft)
           @editorRegion(draft)
 
         App.mainRegion.show @layout, loading: true
 
 
-    titleRegion: ->
-      titleView = @getTitleView()
-      @show titleView, region: @layout.titleRegion
+    noteRegion: (draft)->
+      App.vent.trigger "note:list", @layout.noteRegion, draft
+      # titleView = @getTitleView()
+      # @show titleView, region: @layout.titleRegion
 
 
     editorRegion: (draft) ->

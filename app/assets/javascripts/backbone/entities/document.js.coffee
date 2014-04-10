@@ -1,8 +1,30 @@
 @WI.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 
+  class Entities.Note extends App.Entities.Model
+
+    initialize: (@draft_id, @note_id) ->
+    url: -> "/drafts/#{@draft_id}/notes/#{@note_id or ""}"
+
+
+  class Entities.NoteCollection  extends App.Entities.Collection
+
+    model: Entities.Note
+    initialize: (@draft_id) ->
+
+    url: -> "/drafts/#{@draft_id}/notes"
+
+
+
+
   class Entities.Draft extends App.Entities.Model
     urlRoot: -> Routes.drafts_path()
+
+    relations : [
+        type: Backbone.Many,
+        key : 'notes',
+        relatedModel : Entities.Note
+        ]
 
 
 
@@ -31,6 +53,12 @@
       draft.fetch()
       draft
 
+    getNotes: (draft_id) ->
+      notes = new Entities.NoteCollection(draft_id)
+      notes.fetch
+        reset: true
+      notes
+
     newDraft: ->
       new Entities.Draft
 
@@ -45,3 +73,6 @@
 
   App.reqres.setHandler "new:draft:entity", ->
     API.newDraft()
+
+  App.reqres.setHandler "note:entities", (draft_id) ->
+    API.getNotes(draft_id)
