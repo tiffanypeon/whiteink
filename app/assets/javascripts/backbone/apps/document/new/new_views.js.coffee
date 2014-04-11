@@ -28,7 +28,7 @@
       model = @.model
       if (e.keyCode ==32 || e.keyCode ==190 )
         @trigger "document:save", (model)
-      @$el.find(".edit-document").keydown (e) ->
+      @$el.find("#edit-document").keydown (e) ->
         if (e.keyCode ==37 || e.keyCode ==39)
           console.log "left / right arrow"
           false
