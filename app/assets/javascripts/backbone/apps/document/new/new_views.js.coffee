@@ -2,12 +2,14 @@
 
   class New.Layout extends App.Views.Layout
     template: "document/new/new_layout"
-
-
+    
     regions:
       # titleRegion:      "#title-region"
       editorRegion:     "#editor-region"
       noteRegion:       "#note-region"
+
+    #shortCuts:
+     #   "command+ctrl+c" : -> @trigger "new:note:create"
 
   # class New.Title extends App.Views.ItemView
   #   template: "document/new/_title"
@@ -38,7 +40,7 @@
       return
 
     setFocus: =>
-      console.log "kik"
+      console.log "setting focus"
       placeCaretAtEnd document.getElementsByClassName("edit-document")[0]
 
 
@@ -47,10 +49,7 @@
       @$el.find(".editor").popline()
 
     events:
-      # "click" : "setFocus" 
       "keydown" : 'strokeDetector'
-
-
 
     strokeDetector: (e) =>
       model = @.model
@@ -59,3 +58,11 @@
       if (e.keyCode ==37 || e.keyCode ==39)
         console.log "left / right arrow"
         false
+
+
+
+
+
+
+
+

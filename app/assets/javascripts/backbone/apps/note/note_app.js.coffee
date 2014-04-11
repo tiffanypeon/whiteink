@@ -24,7 +24,6 @@
   App.commands.setHandler "new:note:create", ( notes, region) ->
     API.newNote notes, region
 
-  #
   # App.addInitializer ->
   #   new NoteApp.Router
   #     controller: API
