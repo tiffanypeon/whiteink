@@ -1,4 +1,3 @@
-<div class="editor edit-document" contenteditable="true"><%- @content %></div>
+<div class="editor edit-document" id="editor" contenteditable="true"><%- @content %></div>
 
-<!--   <p class="edit-document" id="editible" ><%= @content %></p>
-  <div class="gradient"></div> -->
+<div class="gradient"></div> -->
