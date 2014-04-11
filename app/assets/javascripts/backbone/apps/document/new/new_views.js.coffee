@@ -3,6 +3,7 @@
   class New.Layout extends App.Views.Layout
     template: "document/new/new_layout"
 
+
     regions:
       # titleRegion:      "#title-region"
       editorRegion:     "#editor-region"
@@ -16,13 +17,40 @@
 
     onRender: ->
       @setpopline()
+      
+    onShow: ->
+      @setFocus()
+      
+    placeCaretAtEnd = (el) ->
+      el.focus()
+      if typeof window.getSelection isnt "undefined" and typeof document.createRange isnt "undefined"
+        range = document.createRange()
+        range.selectNodeContents el
+        range.collapse false
+        sel = window.getSelection()
+        sel.removeAllRanges()
+        sel.addRange range
+      else unless typeof document.body.createTextRange is "undefined"
+        textRange = document.body.createTextRange()
+        textRange.moveToElementText el
+        textRange.collapse false
+        textRange.select()
+      return
+
+    setFocus: =>
+      console.log "kik"
+      placeCaretAtEnd document.getElementsByClassName("edit-document")[0]
+
 
     setpopline:->
       document.execCommand('defaultParagraphSeparator', false, 'p')
       @$el.find(".editor").popline()
 
     events:
+      # "click" : "setFocus" 
       "keydown" : 'strokeDetector'
+
+
 
     strokeDetector: (e) =>
       model = @.model
