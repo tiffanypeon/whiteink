@@ -33,6 +33,9 @@
 
     url: -> Routes.drafts_path()
 
+  class Entities.DraftReview extends App.Entities.Model
+    url: -> '/draft/review'
+
 
   API =
     getDrafts: ->
@@ -65,6 +68,12 @@
     newDraft: ->
       new Entities.Draft
 
+    getReview: ->
+      draft = new Entities.DraftReview
+      draft.fetch()
+      draft
+
+
   App.reqres.setHandler "draft:entities", ->
     API.getDraft()
 
@@ -76,6 +85,11 @@
 
   App.reqres.setHandler "new:draft:entity", ->
     API.newDraft()
+
+  App.reqres.setHandler "draft:review:entity", ->
+    API.getReview()
+
+
 
   App.reqres.setHandler "note:entities", (draft_id) ->
     API.getNotes(draft_id)

@@ -1,5 +1,5 @@
 
-<button id="new-note" class="button radius small secondary">
+<button id="new-note"  type="button" class="btn btn-default">
 		<i class="general-enclosed foundicon-plus"></i>
 		Add </button>
 

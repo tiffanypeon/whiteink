@@ -7,6 +7,15 @@
       # titleRegion:      "#title-region"
       editorRegion:     "#editor-region"
       noteRegion:       "#note-region"
+      newIterationRegion: "#newIteration-region"
+      reviewRegion:       "#review-region"
+
+
+  class New.NewIteration extends App.Views.ItemView
+    template: "document/new/_newiteration"
+
+    triggers:
+      "click #newIteration" : "start:new:iteration"
 
     #shortCuts:
      #   "command+ctrl+c" : -> @trigger "new:note:create"
@@ -44,9 +53,11 @@
       placeCaretAtEnd document.getElementsByClassName("edit-document")[0]
 
 
+
     setpopline:->
       document.execCommand('defaultParagraphSeparator', false, 'p')
       @$el.find(".editor").popline()
+
 
     events:
       "keydown" : 'strokeDetector'
@@ -56,7 +67,6 @@
       if (e.keyCode ==32 || e.keyCode ==190 )
         @trigger "document:save", (model)
       if (e.keyCode ==37 || e.keyCode ==39)
-        console.log "left / right arrow"
         false
 
 
