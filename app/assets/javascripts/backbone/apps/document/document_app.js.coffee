@@ -15,6 +15,10 @@
       new DocumentApp.Edit.Controller
 
 
+  # App.commands.setHandler "new:draft:create", ->
+  #   API.newDraft
+
+
 
   App.addInitializer ->
     new DocumentApp.Router

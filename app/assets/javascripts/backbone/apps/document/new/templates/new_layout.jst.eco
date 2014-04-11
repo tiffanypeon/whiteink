@@ -4,5 +4,6 @@
   </div>
   <div class="col-md-2">
     <div id="note-region"></div>
+    <div id="newIteration-region"></div>
   </div>
 </div>
