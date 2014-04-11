@@ -1,7 +1,7 @@
 class DraftsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy, :editable, :reviewable]
   before_action :set_document, only: [:index, :show, :create]
-  before_action :set_current_user, only: [:index, :show, :edit, :update, :destroy]
 
   def new
     @draft = Draft.new
@@ -30,6 +30,14 @@ class DraftsController < ApplicationController
     @draft = @document.drafts.last
   end
 
+  def editable
+    @draft = @document.drafts.last
+  end
+
+  def reviewable
+    @draft = set_reviewable_draft
+  end
+
   def update
     @draft = Draft.find(params[:id])
     if @draft.update_attributes draft_params
@@ -46,6 +54,10 @@ class DraftsController < ApplicationController
 
   def set_document
     @document = current_user.documents.find_or_create_by(published: false)
+  end
+
+  def set_reviewable_draft
+    current_user.reviewable_draft
   end
 
   def set_current_user

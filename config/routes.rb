@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     resources :notes
   end
 
+  # get 'draft/edit', to: 'drafts#editable'
+  get 'draft/review', to: 'drafts#reviewable'
+
   resources :notes
 
   resources :documents
