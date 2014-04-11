@@ -14,9 +14,14 @@
     editDocument: ->
       new DocumentApp.Edit.Controller
 
+    reviewDraft: (region)->
+      new DocumentApp.Review.Controller
+        region: region
 
-  # App.commands.setHandler "new:draft:create", ->
-  #   API.newDraft
+
+  App.vent.on "set:review:draft", (region) ->
+    API.reviewDraft(region)
+
 
 
 

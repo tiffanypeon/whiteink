@@ -8,6 +8,7 @@
       editorRegion:     "#editor-region"
       noteRegion:       "#note-region"
       newIterationRegion: "#newIteration-region"
+      reviewRegion:       "#review-region"
 
 
   class New.NewIteration extends App.Views.ItemView

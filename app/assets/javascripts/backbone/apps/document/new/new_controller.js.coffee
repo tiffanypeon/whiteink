@@ -25,12 +25,17 @@
       @listenTo newIterationView, "start:new:iteration", ->
         draft = App.request "new:draft:entity"
         @editorRegion(draft)
+        @reviewRegion()
 
       @show newIterationView, region: @layout.newIterationRegion
 
 
     noteRegion: (draft)->
       App.vent.trigger "note:list", @layout.noteRegion, draft
+
+
+    reviewRegion: ->
+      App.vent.trigger "set:review:draft", @layout.reviewRegion
 
 
     editorRegion: (draft) ->
